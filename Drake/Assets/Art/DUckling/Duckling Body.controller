@@ -129,7 +129,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Land Right
-  m_Speed: -1
+  m_Speed: -3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6971524234460983553}
@@ -283,7 +283,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Land Down
-  m_Speed: -1
+  m_Speed: -3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -7290382669204055288}
@@ -688,7 +688,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Land Up
-  m_Speed: -1
+  m_Speed: -3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4546562121663898337}
@@ -868,7 +868,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Land Left
-  m_Speed: -1
+  m_Speed: -3
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -709548764501672571}

@@ -59,7 +59,9 @@ public class Head : Node
 
             if (transform.position.z == 0)  //The head is not airborne
             {
+                //This means we jump!
                 z = 1;
+                SFXManager.instance.PlayJump();
             } 
             else if (transform.position.z == 1)  //The head is airborne
             {
@@ -154,15 +156,15 @@ public class Head : Node
     
     void UpdateDirection ()
     {
-        if (Input.GetKey(FLY))
+        if (Input.GetButton("Submit"))
         {
             toFly = true;
         }
 
-        if (Input.GetKeyDown(UP) && lastDirection != Direction.DOWN) { currentDirection = Direction.UP; }
-        else if (Input.GetKeyDown(DOWN) && lastDirection != Direction.UP) { currentDirection = Direction.DOWN; }
-        else if (Input.GetKeyDown(LEFT) && lastDirection != Direction.RIGHT) { currentDirection = Direction.LEFT; }
-        else if (Input.GetKeyDown(RIGHT) && lastDirection != Direction.LEFT) { currentDirection = Direction.RIGHT; }
+        if (Input.GetButtonDown("W") && lastDirection != Direction.DOWN) { currentDirection = Direction.UP; }
+        else if (Input.GetButtonDown("S") && lastDirection != Direction.UP) { currentDirection = Direction.DOWN; }
+        else if (Input.GetButtonDown("A") && lastDirection != Direction.RIGHT) { currentDirection = Direction.LEFT; }
+        else if (Input.GetButtonDown("D") && lastDirection != Direction.LEFT) { currentDirection = Direction.RIGHT; }
     }
 
 }

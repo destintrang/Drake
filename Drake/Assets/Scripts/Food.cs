@@ -12,7 +12,7 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Head>())
         {
-            SFXManager.instance.Play(collectSFX);
+            SFXManager.instance.PlayQuack();
             collision.gameObject.GetComponent<Head>().Grow();
             Destroy(this.gameObject);
         }

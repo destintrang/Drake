@@ -15,10 +15,12 @@ public class MenuManager : MonoBehaviour
     public Text eggsAverageText;
     public Text pointsHighscoreText;
     public Text pointsAverageText;
+    public Text jumpedOverText;
+    public Text swamUnderText;
 
-    public Camera mainMenu;
-    public Camera statMenu;
+
     Camera currentCamera;
+    ButtonManager currentButtonManager;
 
 
     // Start is called before the first frame update
@@ -39,12 +41,20 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("Main Game");
     }
 
+
     public void SwitchCamera (Camera c)
     {
         currentCamera.gameObject.SetActive(false);
         c.gameObject.SetActive(true);
         currentCamera = c;
     }
+    public void SwithButtonManager (ButtonManager b)
+    {
+        //currentButtonManager.Activate();
+        currentButtonManager = b;
+        //currentButtonManager.Activate();
+    }
+
 
     public void UpdateStats ()
     {
@@ -57,5 +67,7 @@ public class MenuManager : MonoBehaviour
         eggsAverageText.text = ((Mathf.Round(s.GetEggsAverage() * 100)) / 100.0).ToString();
         pointsHighscoreText.text = s.GetPointsHighscore().ToString();
         pointsAverageText.text = ((Mathf.Round(s.GetPointsAverage() * 100)) / 100.0).ToString();
+        jumpedOverText.text = s.GetJumped().ToString();
+        swamUnderText.text = s.GetSwam().ToString();
     }
 }

@@ -17,9 +17,14 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
-
+    public void hi()
+    {
+        Debug.Log("HI");
+    }
     public void Step ()
     {
+
+        //MenuSFXManager.instance.PlayButtonNavi();
         FoodManager.instance.Rot();
         ScoreManager.instance.IncrementStep();
 
@@ -28,10 +33,35 @@ public class GameManager : MonoBehaviour
         l.RemoveAt(0);
         if (l.Count != 0) l.RemoveAt(0);  // The head should never be able to touch the 2nd node
 
+        //Check if the head collides with a node
         if (l.Count != 0 && l.Contains(head))
         {
             GameOver();
         }
+        //Check if the head jumps over a node
+        else if (head.z == 1)
+        {
+
+            Vector3 jumpedOver = new Vector3(head.x, head.y, 0);
+            if (l.Count != 0 && l.Contains(jumpedOver))
+            {
+                //A jump stunt has been made
+                ScoreManager.instance.IncrementJumped();
+            }
+
+        }
+        else if (head.z == 0)
+        {
+
+            Vector3 swamUnder = new Vector3(head.x, head.y, 1);
+            if (l.Count != 0 && l.Contains(swamUnder))
+            {
+                //An under stunt has been made
+                ScoreManager.instance.IncrementSwam();
+            }
+
+        }
+
     }
 
 
@@ -39,7 +69,9 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         ScoreManager.instance.ArchiveScore();
+        SaveProgress();
         gameOverUI.SetActive(true);
+        //gameOverUI.GetComponent<ButtonManager>().Activate();
     }
 
 
@@ -55,5 +87,10 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+
+    private void SaveProgress ()
+    {
+        SaveManager.SaveData();
+    }
     
 }
