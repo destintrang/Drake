@@ -156,6 +156,7 @@ public class Head : Node
     
     void UpdateDirection ()
     {
+        //This is for jumping
         if (Input.GetButton("Submit"))
         {
             toFly = true;
